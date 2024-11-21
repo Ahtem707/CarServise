@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form action="/zakaz.js" method="POST"></form>
+    <div class="container">
+      <div class="order-form">
+        <h1>Оформление заказа</h1>
+
+        <div class="form-group">
+          <label>ФИО</label>
+          <input type="text" id="name" placeholder="Иванов Иван Иванович" />
+        </div>
+
+        <div class="form-group">
+          <label>Автомобиль</label>
+          <select id="car">
+            <option value="">Выберите автомобиль</option>
+            <option value="mercedes">Мерседес X</option>
+            <option value="bmw">BMW</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Адрес</label>
+          <input type="text" id="address" />
+        </div>
+
+        <div class="form-group">
+          <label>Услуги</label>
+          <div class="services-container">
+            <button class="service-btn" data-service="cleaning">Клининг</button>
+            <button class="service-btn" data-service="fuel">
+              Заправка бензина 95
+            </button>
+            <button class="service-btn add-service">+</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Дополнительные требования</label>
+          <textarea id="requirements"></textarea>
+        </div>
+
+        <button class="submit-btn">Далее</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

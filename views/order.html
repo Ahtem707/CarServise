@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверьте данные</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b2b44;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .confirm-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .data-group {
+            margin-bottom: 20px;
+        }
+
+        .data-group label {
+            display: block;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .data-group .value {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .services-list {
+            margin: 10px 0;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .total-price {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .confirm-btn {
+            background-color: #2b2b44;
+            color: white;
+        }
+
+        .back-btn {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .confirm-btn:hover {
+            background-color: #3a3a5a;
+        }
+
+        .back-btn:hover {
+            background-color: #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confirm-form">
+            <h1>Проверьте данные</h1>
+
+            <div class="data-group">
+                <label>Автомобиль</label>
+                <div class="value"><%= car.mark %> <%= car.model %></div>
+            </div>
+
+            <div class="data-group">
+                <label>Адрес</label>
+                <div class="value"><%= address %></div>
+            </div>
+
+            <div class="data-group">
+                <label>Услуги:</label>
+                <div class="services-list">
+                    <% services.forEach(function(service) { %>
+                        <div class="service-item">
+                            <span><%= service.servis_name %></span>
+                            <span><%= service.servis_price %> ₽</span>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+
+            <% if (requirements) { %>
+                <div class="data-group">
+                    <label>Дополнительные требования</label>
+                    <div class="value"><%= requirements %></div>
+                </div>
+            <% } %>
+
+            <div class="total-price">
+                Цена: <%= totalPrice %> ₽
+            </div>
+<form action="/zakaz" method="POST">
+                <!-- Скрытые поля для передачи данных -->
+                <input type="hidden" name="car" value="<%= car.car_id %>">
+                <input type="hidden" name="address" value="<%= address %>">
+                <% services.forEach(function(service) { %>
+                    <input type="hidden" name="services[]" value="<%= service.servis_id %>">
+                <% }); %>
+                <input type="hidden" name="requirements" value="<%= requirements %>">
+
+                <div class="buttons">
+                    <button type="button" class="submit-btn back-btn" onclick="history.back()">Назад</button>
+                    <button type="submit" class="submit-btn confirm-btn">Оформить заказ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
