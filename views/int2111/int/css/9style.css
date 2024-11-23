@@ -70,14 +70,16 @@ button:hover {
 .footer {
   font-family: "ABeeZee", sans-serif;
   font-weight: 400;
-  padding-left: 275px;
-  background-color: #44436F;
-  height: 160px;
+  background-color: #44436f;
   margin-top: 180px;
-  display: flex;
   width: 100%;
 }
-.footerlogo{
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footerlogo {
   width: 142px;
   height: 142px;
   margin-top: 15px;
@@ -88,8 +90,8 @@ button:hover {
   color: #fff;
   line-height: 7px;
 }
-.onas, .ooo{
-  
+.onas,
+.ooo {
   font-size: 12;
   font-style: normal;
   text-align: justify;
