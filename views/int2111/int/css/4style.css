@@ -1,0 +1,61 @@
+body {
+    background-color: #2D2B4A;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+button,
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color:#fff
+}
+a:visited{
+  color: #fff;
+}
+.header {
+  max-width: 1264px;
+  margin: 26px auto;
+  display: flex;
+  justify-content: flex-end;
+}
+  
+.exit {
+  font-optical-sizing: auto;
+  font-weight: 400px;
+  font-style: bold;
+  height: 60px;
+  background-color: var(--btn-color);
+  border-radius: 30px;
+  border: 2px solid #bbabb8;
+  color: #fff;
+  font-weight: 600;
+  font-family: var(--main-font);
+  margin-right: 40px;
+  width: 170px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+.profile, .cars {
+    background-color: #3A3759;
+    padding: 20px;
+    border-radius: 10px;
+}
+.profile input, .cars button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+.cars button {
+    background-color: #5A58A7;
+    color: white;
+}

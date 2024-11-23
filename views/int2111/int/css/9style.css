@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a2e;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color:#fff
+}
+a:visited{
+  color: #fff;
+}
+
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #22223b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.service-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.service-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.service-btn.active {
+    background-color: #ff6f61; /* Цвет активной кнопки */
+}
+
+.footer {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  padding-left: 275px;
+  background-color: #44436F;
+  height: 160px;
+  margin-top: 180px;
+  display: flex;
+  width: 100%;
+}
+.footerlogo{
+  width: 142px;
+  height: 142px;
+  margin-top: 15px;
+}
+.ooo {
+  margin: 28px -20px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 7px;
+}
+.onas, .ooo{
+  
+  font-size: 12;
+  font-style: normal;
+  text-align: justify;
+}
+.onas {
+  margin: 80px 215px;
+  width: 390px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+}
+.sotsseti {
+  width: 311px;
+  margin-top: 16px;
+  margin-left: -102px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

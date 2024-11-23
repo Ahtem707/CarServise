@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/4style.css"> 
+    <title>Car Service</title>
+</head>
+<body>
+    <div class="header">
+        <button class="exit"><h2>Выйти</h2></button>
+    </div>
+    <div class="container">
+        <div class="profile">
+            <h2>Иванов Иван Иванович</h2>
+            <input type="text" placeholder="почта" id="email">
+            <input type="text" placeholder="номер" id="phone">
+            <p>дата регистрации</p>
+            <input type="text" placeholder="" id="registrationDate">
+        </div>
+
+        <div class="cars">
+            <div id="carList">
+                <div>название машины</div>
+                <div>название машины</div>
+                <div>название машины</div>
+            </div>
+            <button onclick="addCar()">+ добавить авто</button>
+        </div>
+    </div>
+
+<script>
+    function addCar() {
+        const carList = document.getElementById('carList');
+        const newCar = document.createElement('div');
+        newCar.textContent = 'название машины';
+        carList.appendChild(newCar);
+    }
+</script>
+</body>
+</html>

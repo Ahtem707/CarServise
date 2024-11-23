@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap');
+body {
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  background-color: #3C3B5A;
+  background-image: url(../img/enter.png);
+  background-size:cover;
+}
+button {
+  font-family: "Unbounded", sans-serif;
+  background-color: #5C5B8A;
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  width: 200px;
+  height: 70px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-left: 103px;
+}
+
+button,
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color:#fff
+}
+a:visited{
+  color: #fff;
+}
+.Logo{
+  width: 130px;
+  height: 130px;
+  margin: 2px 30px;
+}
+.login-container {
+  display: flex;
+  height: 836px;
+  width: 1400px;
+  margin: -36px 0 0 260px;
+  border: 1px solid black; 
+  border-radius: 30px; 
+}
+
+.login-box {
+  margin: 116px 0 0 0;
+}
+#loginForm{
+  width: 486px;
+  height: 414px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 52px 40px 0;
+}
+.icon img {
+  width: 320px;
+  height: 600px;
+  margin: 155px 185px 157px 190px;
+}
+h2 {
+  margin: -2px 0 60px -6px;
+  font-size: 40px;
+  font-weight: 600;
+  font-weight: bold;
+  letter-spacing: 0.007em;
+  text-align: center;
+}
+.email, .password{
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding-bottom: 18px;
+}
+.password{
+  padding-top: 29px;
+}
+.enter{
+
+}
+form input[type="email"],
+form input[type="password"] {
+  font-size: 20px;
+  align-items: center;
+  padding-left: 20px;
+  min-width: 385px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  background-color: #D9D9D9;
+}
+.options {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 35px;
+  color: black;
+}
+.options a {
+  color: #5D5A7A;
+}
+label{
+  display: flex;
+}
+form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 2 solid #FFAE52;
+  border-radius: 10px;
+}
+
+
+
+.footer {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  padding-left: 275px;
+  background-color: #44436F;
+  height: 160px;
+  margin-top: 140px;
+  display: flex;
+  width: 100%;
+}
+.footerlogo{
+  width: 142px;
+  height: 142px;
+  margin-top: 15px;
+}
+.ooo {
+  margin: 28px -20px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 7px;
+}
+.onas, .ooo{
+  
+  font-size: 12;
+  font-style: normal;
+  text-align: justify;
+}
+.onas {
+  margin: 80px 215px;
+  width: 390px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+}
+.sotsseti {
+  width: 311px;
+  margin-top: 16px;
+  margin-left: -102px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
