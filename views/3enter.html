@@ -6,35 +6,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/2style.css"> 
+    <link rel="stylesheet" href="css/3style.css"> 
     <link rel="stylesheet" href="css/footer.css"> 
-    <title>Регистрация</title>
+    <title>Вход</title>
 </head>
 <body>
-    <a href="1index.html"><img src="img/svg/Logo.svg" alt="logo" class="Logo"></a>
-    <div class="container">
-        <div class="left">
-            <h1 class="h1">Регистрация</h1>
-            <h2 class="h2">Добро пожаловать!</h2>
-            <img src="img/svg/2reg.svg" alt="registration" class="registration">
+  <form action="/auth/login" method="POST">
+    <a href="/"><img src="img/svg/Logo.svg" alt="logo" class="Logo"></a>
+    <div class="login-container">
+        <div class="icon">
+            <img src="img/svg/door.svg" alt="Door">
         </div>
-        <div class="form-box">
-            <form id="registrationForm">
-                <h3>Введите ФИО</h3>
-                <input type="text" placeholder="" required>
-                <h3>Введите эл.почту</h3>
-                <input type="email" placeholder="" required>
-                <h3>Номер телефона</h3>
-                <input type="tel" placeholder="" required>
-                <h3>Введите пароль</h3>
-                <input type="password" placeholder="" required>
-                <h3>Повторите пароль</h3>
-                <input type="password" placeholder="" required>
-                <label><input type="checkbox">Я даю согласие на обработку персональных данных</label>
-                <button type="submit"><a href="4lk.html"><h2 class="button">Зарегистрироваться</h2></a></button>
-            </form>
+        <div class="login-box">
+            <h2>Вход</h2>
+            <% if (error) { %>
+                <div class="error" style="color: red; text-align: center; margin-bottom: 10px;">
+                    <%= error %>
+                </div>
+            <% } %>
+            <h3 class="email">Введите эл.почту</h3>
+            <input type="email" name="email" required>
+            <h3 class="password">Введите пароль</h3>
+            <input type="password" name="password" required>
+            <div class="options">
+                <label><input type="checkbox"> запомнить меня</label>
+                <a href="/forgot-password">забыли пароль?</a>
+            </div>
+            <button type="submit"><h3 class="enter">Войти</h3></button>
         </div>
     </div>
+</form>
+        </div>
+    </div>
+
     <footer class="footer">
       <div class="footer__container">
           <div class="footer__wrapper">
@@ -69,6 +73,6 @@
       </div>
   </footer>
 
-    <script src="a2.js"></script>
+    <script src="a3.js"></script>
 </body>
 </html>

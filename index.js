@@ -60,6 +60,12 @@ app.use('/auth', authRoutes);
 
 const zakazRouter = require('./routes/zakaz');
 app.use('/zakaz',zakazRouter)
+
+const path = require('path');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.engine('ejs', require('ejs-locals'));
+app.use(express.static('public'));
 // Запуск сервера
 app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
