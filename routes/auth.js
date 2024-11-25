@@ -109,7 +109,7 @@ router.post('/reset-password', async (req, res) => {
         const query = 'UPDATE customers SET password = ? WHERE customer_id = ?';
         await db.promise().query(query, [hashedPassword, req.session.userId]);
 
-        res.redirect('/auth/login');
+        res.redirect('/login');
     } catch (error) {
         console.error('Ошибка обновления пароля:', error);
         res.status(500).send('Произошла ошибка, попробуйте снова.');
