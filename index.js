@@ -61,6 +61,29 @@ app.use('/auth', authRoutes);
 const zakazRouter = require('./routes/zakaz');
 app.use('/zakaz',zakazRouter)
 
+app.get('/home', (req, res) => {
+    res.render('1index'); // Отображаем 1index.ejs
+});
+
+app.get('/login', (req, res) => {
+    res.render('3enter', {
+        user: {
+            fullName: 'Иванов Иван Иванович',
+            email: 'ivanov@example.com',
+            phone: '+7 (900) 123-45-67',
+            registrationDate: '2023-01-01'
+        },
+        cars: [
+            { name: 'Toyota Camry' },
+            { name: 'Hyundai Solaris' },
+            { name: 'BMW X5' }
+        ]
+    });
+});
+app.get('/auth/reset-password', (req, res) => {
+    res.render('5vospar');
+});
+
 const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
