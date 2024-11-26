@@ -1,3 +1,24 @@
+<<<<<<< Updated upstream
+=======
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+:root {
+  --orange-color: #e99e75;
+  --blue-color: #44426e;
+  --prpl-color: #776483;
+  --grey-color: #bbaab8;
+  --black-color: #292643;
+  --btn-color: #44436f;
+}
+>>>>>>> Stashed changes
 body {
   margin: 0;
   font-family: "Unbounded", sans-serif;
@@ -19,12 +40,49 @@ a:visited {
   color: #fff;
 }
 
+<<<<<<< Updated upstream
+=======
+a:active {
+}
+
+/* 
+.abeezee-regular {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-size: 40;
+  font-style: normal;
+}
+
+.unbounded{
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.krona-one-regular {
+  font-family: "Krona One", serif;
+  font-weight: 400;
+  font-size: 40;
+  text-transform: uppercase;
+} */
+
+.container {
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
+>>>>>>> Stashed changes
 .header {
   max-width: 1264px;
   margin: 26px auto;
   display: flex;
   justify-content: flex-end;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .enter,
 .registration,
 #buy {
@@ -33,27 +91,44 @@ a:visited {
   font-optical-sizing: auto;
   font-style: bold;
   height: 60px;
+<<<<<<< Updated upstream
   background-color: #44436f;
   border-radius: 30px;
   border: 2px solid #bbabb8;
   color: #fff;
   transition: all 0.5s ease;
+=======
+  background-color: var(--btn-color);
+  border-radius: 30px;
+  border: 2px solid #bbabb8;
+  color: #fff;
+  transition: all 0.3s ease;
+>>>>>>> Stashed changes
 }
 .enter {
   margin-right: 40px;
   width: 170px;
 }
+<<<<<<< Updated upstream
 .enter:hover {
   background-color: #2A2743;
+=======
+
+.enter:hover {
+  background-color: #4443ff;
+>>>>>>> Stashed changes
 }
 .registration {
   width: 230px;
 }
+<<<<<<< Updated upstream
 .registration:hover {
   background-color: #2A2743;
 }
 
 
+=======
+>>>>>>> Stashed changes
 .full {
   max-width: 1264px;
   margin: -10px auto;
@@ -83,12 +158,20 @@ a:visited {
   letter-spacing: 0.095em;
   line-height: 45px;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .text {
   font-family: "Unbounded", sans-serif;
   font-weight: 500;
   color: #bbabb8;
   position: relative;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .text::before {
   content: "";
   position: absolute;
@@ -98,7 +181,11 @@ a:visited {
   top: 0;
   height: 10rem;
   height: 100%;
+<<<<<<< Updated upstream
   background-image: linear-gradient(to bottom, #44436F, #FFAE52);
+=======
+  background-image: linear-gradient(to bottom, #fff, #000);
+>>>>>>> Stashed changes
   background-color: #fff;
   border-radius: 5px;
 }
@@ -118,6 +205,7 @@ a:visited {
 #buy {
   width: 290px;
   height: 90px;
+<<<<<<< Updated upstream
   margin-left: 100px;
   margin-top: 80px;
   font-size: 14px;
@@ -130,3 +218,61 @@ a:visited {
 #buy:hover{
   box-shadow: 0 0 30px #fff, 0 0 30px #fff;
 }
+=======
+  margin-left: 430px;
+  margin-top: 94px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  background-color: #292643;
+  border: none;
+  transition: box-shadow 1s ease;
+  box-shadow: 0 0 20px #fff, 0 0 30px #fff;
+}
+
+.footer {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  background-color: #44436f;
+  margin-top: 180px;
+  width: 100%;
+}
+
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footerlogo {
+  width: 142px;
+  height: 142px;
+  margin-top: 15px;
+}
+.ooo {
+  margin: 28px -20px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 7px;
+}
+.onas,
+.ooo {
+  font-size: 12;
+  font-style: normal;
+  text-align: justify;
+}
+.onas {
+  margin: 80px 215px;
+  width: 390px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+}
+.sotsseti {
+  width: 311px;
+  margin-top: 16px;
+  margin-left: -102px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+>>>>>>> Stashed changes

@@ -12,9 +12,15 @@ button,
 a {
   cursor: pointer;
   text-decoration: none;
+<<<<<<< Updated upstream
   color: #fff;
 }
 a:visited {
+=======
+  color:#fff
+}
+a:visited{
+>>>>>>> Stashed changes
   color: #fff;
 }
 .header {

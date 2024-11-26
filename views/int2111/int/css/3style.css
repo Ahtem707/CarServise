@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap');
+>>>>>>> Stashed changes
 body {
   font-family: "Unbounded", sans-serif;
   font-optical-sizing: auto;
@@ -24,6 +28,10 @@ button {
   cursor: pointer;
   margin-left: 103px;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 button,
 a {
   cursor: pointer;
@@ -33,15 +41,19 @@ a {
 a:visited{
   color: #fff;
 }
+<<<<<<< Updated upstream
 button a:hover {
   background-color: #292643;
 }
+=======
+>>>>>>> Stashed changes
 .Logo{
   width: 130px;
   height: 130px;
   margin: 2px 30px;
 }
 .login-container {
+<<<<<<< Updated upstream
   margin: 0 auto;
   max-width: 1400px;
   height: 836px;
@@ -69,6 +81,18 @@ button a:hover {
 .login-box {
   margin: -150px auto 0;
 
+=======
+  display: flex;
+  height: 836px;
+  width: 1400px;
+  margin: -36px 0 0 260px;
+  border: 1px solid black; 
+  border-radius: 30px; 
+}
+
+.login-box {
+  margin: 116px 0 0 0;
+>>>>>>> Stashed changes
 }
 #loginForm{
   width: 486px;
@@ -81,8 +105,12 @@ button a:hover {
 .icon img {
   width: 320px;
   height: 600px;
+<<<<<<< Updated upstream
   
 
+=======
+  margin: 155px 185px 157px 190px;
+>>>>>>> Stashed changes
 }
 h2 {
   margin: -2px 0 60px -6px;
@@ -127,9 +155,12 @@ form input[type="password"] {
 .options a {
   color: #5D5A7A;
 }
+<<<<<<< Updated upstream
 .options a:hover {
   color: #FFAE52;
 }
+=======
+>>>>>>> Stashed changes
 label{
   display: flex;
 }
@@ -140,3 +171,51 @@ form input[type="checkbox"] {
   border-radius: 10px;
 }
 
+<<<<<<< Updated upstream
+=======
+
+
+.footer {
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  padding-left: 275px;
+  background-color: #44436F;
+  height: 160px;
+  margin-top: 140px;
+  display: flex;
+  width: 100%;
+}
+.footerlogo{
+  width: 142px;
+  height: 142px;
+  margin-top: 15px;
+}
+.ooo {
+  margin: 28px -20px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 7px;
+}
+.onas, .ooo{
+  
+  font-size: 12;
+  font-style: normal;
+  text-align: justify;
+}
+.onas {
+  margin: 80px 215px;
+  width: 390px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+}
+.sotsseti {
+  width: 311px;
+  margin-top: 16px;
+  margin-left: -102px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+>>>>>>> Stashed changes
