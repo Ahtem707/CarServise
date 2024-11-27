@@ -14,6 +14,13 @@
     <form action="/auth/reset-password" method="POST">
     <a href="/home"><img src="/img/svg/Logo.svg" alt="logo" class="Logo"></a>
     <div class="container">
+        <% if (error) { %>
+            <div style="color: red;"><%= error %></div>
+        <% } %>
+    
+        <% if (success) { %>
+            <div style="color: green;"><%= success %></div>
+        <% } %>
             <label for="new-password"><h3>Введите новый пароль</h3></label>
             <input type="password" id="new-password" name="newPassword" required>
 

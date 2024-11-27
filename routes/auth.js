@@ -4,10 +4,14 @@ const db = require('../db/connection');
 const bcrypt = require('bcrypt');
 // Роуты для отображения форм
 router.get('/login', (req, res) => {
-    res.render('../views/2reg.ejs'); // Убедитесь, что файл views/login.ejs существует
+    res.render('../views/3enter.ejs'); // Убедитесь, что файл views/login.ejs существует
 });
 router.get('/reg', (req, res) => {
     res.render('../views/2reg.ejs'); // Убедитесь, что файл views/auth/2reg.ejs существует
+});
+
+router.get('/reset-password', (req, res) => {
+    res.render('../views/5vospar'); 
 });
 
 // Регистрация пользователя
@@ -43,7 +47,7 @@ router.post('/reg', async (req, res) => {
         );
 
         req.session.success = 'Пользователь успешно зарегистрирован!';
-        res.redirect('/home');
+        res.redirect('/home2');
     } catch (error) {
         console.error(error);
         req.session.error = 'Ошибка сервера.';
@@ -57,7 +61,7 @@ router.post('/login', async (req, res) => {
 
     if (!email || !password) {
         req.session.error = 'Введите email и пароль.';
-        return res.redirect('/login');
+        return res.redirect('/auth/login');
     }
 
     try {
@@ -80,7 +84,7 @@ router.post('/login', async (req, res) => {
         req.session.userId = user.customer_id;
         req.session.email = user.email;
 
-        res.redirect('/home');
+        res.redirect('/home2');
     } catch (error) {
         console.error(error);
         req.session.error = 'Ошибка сервера.';
@@ -89,30 +93,37 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/reset-password', async (req, res) => {
-    console.log('Request body:', req.body); // Отобразит данные, полученные от формы
+    console.log('Request body:', req.body); // Логируем данные формы
     try {
         const { newPassword, confirmPassword } = req.body;
 
         // Проверка на пустые поля
         if (!newPassword || !confirmPassword) {
             console.log('Empty fields:', { newPassword, confirmPassword });
-            return res.status(400).send('Пожалуйста, заполните все поля.');
+            req.session.error = 'Пожалуйста, заполните все поля.'; // Сохраняем сообщение об ошибке в сессии
+            return res.redirect('/auth/reset-password'); // Перенаправляем обратно на страницу сброса
         }
 
+        // Проверка совпадения паролей
         if (newPassword !== confirmPassword) {
-            return res.status(400).send('Пароли не совпадают.');
+            req.session.error = 'Пароли не совпадают.'; // Сохраняем сообщение об ошибке
+            return res.redirect('/auth/reset-password'); // Перенаправляем обратно
         }
 
+        // Хеширование нового пароля
         const hashedPassword = await bcrypt.hash(newPassword.trim(), 10);
 
-        // Обновление пароля
+        // Обновление пароля в базе данных
         const query = 'UPDATE customers SET password = ? WHERE customer_id = ?';
         await db.promise().query(query, [hashedPassword, req.session.userId]);
 
-        res.redirect('/login');
+        req.session.success = 'Пароль успешно обновлен!'; // Сохраняем сообщение об успехе
+        res.redirect('/auth/login'); // Перенаправляем на страницу входа
     } catch (error) {
         console.error('Ошибка обновления пароля:', error);
-        res.status(500).send('Произошла ошибка, попробуйте снова.');
+        req.session.error = 'Произошла ошибка, попробуйте снова.'; // Сохраняем сообщение об ошибке
+        res.redirect('/auth/reset-password'); // Перенаправляем обратно
     }
 });
+
 module.exports = router;

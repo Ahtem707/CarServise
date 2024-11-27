@@ -61,6 +61,9 @@ app.use('/zakaz',zakazRouter)
 app.get('/home', (req, res) => {
     res.render('1index'); // Отображаем 1index.ejs
 });
+app.get('/home2', (req, res) => {
+    res.render('7index2'); // Отображаем 1index.ejs
+});
 
 app.get('/login', (req, res) => {
     res.render('3enter', {
