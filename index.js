@@ -25,9 +25,6 @@ app.use((req, res, next) => {
 const customerRoutes = require('./routes/customers');
 app.use('/customers', customerRoutes);
 
-const carRoutes = require('./routes/car');
-app.use('/car', carRoutes);
-
 const servisOrdersRoutes = require('./routes/servisorders');
 app.use('/orders', servisOrdersRoutes);
 
@@ -82,6 +79,18 @@ app.get('/login', (req, res) => {
 });
 app.get('/auth/reset-password', (req, res) => {
     res.render('5vospar');
+});
+
+app.get('/car',(req, res) => {
+    res.render('6regauto');
+});
+
+app.get('/zakaz',(req,res) => {
+    res.render('9pd');
+});
+
+app.get('/account',(req,res) => {
+    res.render('4lk');
 });
 
 const path = require('path');
