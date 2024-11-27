@@ -11,7 +11,7 @@
     <title>Вход</title>
 </head>
 <body>
-  <form action="/auth/login" method="POST">
+  
     <a href="/home"><img src="img/svg/Logo.svg" alt="logo" class="Logo"></a>
     <div class="login-container">
         <div class="icon">
@@ -24,6 +24,7 @@
                     <%= error %>
                 </div>
             <% } %>
+            <form action="/auth/login" method="POST" id="loginForm">
             <h3 class="email">Введите эл.почту</h3>
             <input type="email" name="email" required>
             <h3 class="password">Введите пароль</h3>
@@ -33,9 +34,10 @@
                 <a href="/auth/reset-password">забыли пароль?</a>
             </div>
             <button type="submit"><h3 class="enter">Войти</h3></button>
+          </form>
         </div>
     </div>
-  </form>
+  
 
   <footer class="footer">
       <div class="footer__container">
