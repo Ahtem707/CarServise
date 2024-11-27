@@ -64,9 +64,6 @@ app.get('/home', (req, res) => {
 app.get('/home2', (req, res) => {
     res.render('7index2'); // Отображаем 1index.ejs
 });
-app.get('/auth/reset-password', (req, res) => {
-    res.render('5vospar');
-});
 
 app.get('/car',(req, res) => {
     res.render('6regauto');
