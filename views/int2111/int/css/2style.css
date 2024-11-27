@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap");
->>>>>>> Stashed changes
 body {
   font-family: "Unbounded", sans-serif;
   font-optical-sizing: auto;
@@ -11,22 +8,7 @@ body {
   margin: 0;
   padding: 0;
   background-image: url(../img/registration.png);
-<<<<<<< Updated upstream
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-button,
-a {
-  cursor: pointer;
-  text-decoration: none;
-  color: #fff;
-}
-a:visited {
-  color: #fff;
-=======
   background-size: cover;
->>>>>>> Stashed changes
 }
 .Logo {
   margin: 2px 30px;
@@ -57,12 +39,8 @@ a:visited {
   border-radius: 20px;
   z-index: -1;
 }
-<<<<<<< Updated upstream
-
-=======
 .left {
 }
->>>>>>> Stashed changes
 .h1,
 .h2,
 .registration {
@@ -154,23 +132,12 @@ a:visited {
 .footer {
   font-family: "ABeeZee", sans-serif;
   font-weight: 400;
-<<<<<<< Updated upstream
-  background-color: #44436f;
-  margin-top: 180px;
-  width: 100%;
-}
-.footer__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-=======
   padding-left: 275px;
   background-color: #44436f;
   height: 160px;
   margin-top: 180px;
   display: flex;
   width: 100%;
->>>>>>> Stashed changes
 }
 .footerlogo {
   width: 142px;

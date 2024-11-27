@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap");
 
 html {
@@ -18,7 +17,6 @@ html {
   --black-color: #292643;
   --btn-color: #44436f;
 }
->>>>>>> Stashed changes
 body {
   margin: 0;
   font-family: "Unbounded", sans-serif;
@@ -40,8 +38,6 @@ a:visited {
   color: #fff;
 }
 
-<<<<<<< Updated upstream
-=======
 a:active {
 }
 
@@ -72,17 +68,13 @@ a:active {
   margin: 0 auto;
 }
 
->>>>>>> Stashed changes
 .header {
   max-width: 1264px;
   margin: 26px auto;
   display: flex;
   justify-content: flex-end;
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 .enter,
 .registration,
 #buy {
@@ -91,44 +83,23 @@ a:active {
   font-optical-sizing: auto;
   font-style: bold;
   height: 60px;
-<<<<<<< Updated upstream
-  background-color: #44436f;
-  border-radius: 30px;
-  border: 2px solid #bbabb8;
-  color: #fff;
-  transition: all 0.5s ease;
-=======
   background-color: var(--btn-color);
   border-radius: 30px;
   border: 2px solid #bbabb8;
   color: #fff;
   transition: all 0.3s ease;
->>>>>>> Stashed changes
 }
 .enter {
   margin-right: 40px;
   width: 170px;
 }
-<<<<<<< Updated upstream
-.enter:hover {
-  background-color: #2A2743;
-=======
 
 .enter:hover {
   background-color: #4443ff;
->>>>>>> Stashed changes
 }
 .registration {
   width: 230px;
 }
-<<<<<<< Updated upstream
-.registration:hover {
-  background-color: #2A2743;
-}
-
-
-=======
->>>>>>> Stashed changes
 .full {
   max-width: 1264px;
   margin: -10px auto;
@@ -158,20 +129,14 @@ a:active {
   letter-spacing: 0.095em;
   line-height: 45px;
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 .text {
   font-family: "Unbounded", sans-serif;
   font-weight: 500;
   color: #bbabb8;
   position: relative;
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 .text::before {
   content: "";
   position: absolute;
@@ -181,11 +146,7 @@ a:active {
   top: 0;
   height: 10rem;
   height: 100%;
-<<<<<<< Updated upstream
-  background-image: linear-gradient(to bottom, #44436F, #FFAE52);
-=======
   background-image: linear-gradient(to bottom, #fff, #000);
->>>>>>> Stashed changes
   background-color: #fff;
   border-radius: 5px;
 }
@@ -205,20 +166,6 @@ a:active {
 #buy {
   width: 290px;
   height: 90px;
-<<<<<<< Updated upstream
-  margin-left: 100px;
-  margin-top: 80px;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  background-color: #292643;
-  box-shadow: 0 0 5px #fff, 0 0 30px #fff;
-  border: none;
-  transition: box-shadow 1s ease;
-}
-#buy:hover{
-  box-shadow: 0 0 30px #fff, 0 0 30px #fff;
-}
-=======
   margin-left: 430px;
   margin-top: 94px;
   font-size: 14px;
@@ -275,4 +222,3 @@ a:active {
   display: flex;
   justify-content: space-between;
 }
->>>>>>> Stashed changes

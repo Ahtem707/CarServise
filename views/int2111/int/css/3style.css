@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap');
->>>>>>> Stashed changes
 body {
   font-family: "Unbounded", sans-serif;
   font-optical-sizing: auto;
@@ -28,10 +25,7 @@ button {
   cursor: pointer;
   margin-left: 103px;
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 button,
 a {
   cursor: pointer;
@@ -41,47 +35,12 @@ a {
 a:visited{
   color: #fff;
 }
-<<<<<<< Updated upstream
-button a:hover {
-  background-color: #292643;
-}
-=======
->>>>>>> Stashed changes
 .Logo{
   width: 130px;
   height: 130px;
   margin: 2px 30px;
 }
 .login-container {
-<<<<<<< Updated upstream
-  margin: 0 auto;
-  max-width: 1400px;
-  height: 836px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 30px;
-  padding-left: 190px;
-  border-radius: 20px;
-  position: relative;
-  z-index: 1;
-}
-.login-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(30px);
-  border-radius: 20px;
-  z-index: -1;
-}
-.login-box {
-  margin: -150px auto 0;
-
-=======
   display: flex;
   height: 836px;
   width: 1400px;
@@ -92,7 +51,6 @@ button a:hover {
 
 .login-box {
   margin: 116px 0 0 0;
->>>>>>> Stashed changes
 }
 #loginForm{
   width: 486px;
@@ -105,12 +63,7 @@ button a:hover {
 .icon img {
   width: 320px;
   height: 600px;
-<<<<<<< Updated upstream
-  
-
-=======
   margin: 155px 185px 157px 190px;
->>>>>>> Stashed changes
 }
 h2 {
   margin: -2px 0 60px -6px;
@@ -155,12 +108,6 @@ form input[type="password"] {
 .options a {
   color: #5D5A7A;
 }
-<<<<<<< Updated upstream
-.options a:hover {
-  color: #FFAE52;
-}
-=======
->>>>>>> Stashed changes
 label{
   display: flex;
 }
@@ -170,9 +117,6 @@ form input[type="checkbox"] {
   border: 2 solid #FFAE52;
   border-radius: 10px;
 }
-
-<<<<<<< Updated upstream
-=======
 
 
 .footer {
@@ -218,4 +162,3 @@ form input[type="checkbox"] {
   display: flex;
   justify-content: space-between;
 }
->>>>>>> Stashed changes

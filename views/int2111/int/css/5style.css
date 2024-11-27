@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap');
->>>>>>> Stashed changes
 body {
     font-family: "Unbounded", sans-serif;
     font-optical-sizing: auto;
@@ -14,17 +11,6 @@ body {
     background-image: url(../img//vospar.png);
     background-size:cover;
   }
-<<<<<<< Updated upstream
-  button,
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-  }
-  a:visited {
-    color: #fff;
-  }
-=======
 button,
 a {
   cursor: pointer;
@@ -34,28 +20,11 @@ a {
 a:visited{
   color: #fff;
 }
->>>>>>> Stashed changes
 .Logo{
     width: 130px;
     height: 130px;
     margin: 2px 30px;
   }
-<<<<<<< Updated upstream
-
-.container {
-    margin: 140px auto;
-    width: 470px;
-    height: 400px;
-    background-color: #fff;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 20px;
-    padding: 50px;
-
-  }
-=======
 .container {
     padding: 26px 53px;
     width: 486px;
@@ -66,7 +35,6 @@ a:visited{
     border-radius: 20px;
     display: flex;
 }
->>>>>>> Stashed changes
 h3{
     letter-spacing: 0.04em;
     color: black;
@@ -104,18 +72,6 @@ button {
     background-color: #BBABB8;
     margin: 63px 40px 0 -11px;
 }
-<<<<<<< Updated upstream
-#back-button:hover {
-    background-color: #776483;
-}
 #next-button {
     background-color: #44436F;
 }
-#next-button:hover {
-    background-color: #292643;
-}
-=======
-#next-button {
-    background-color: #44436F;
-}
->>>>>>> Stashed changes
