@@ -70,7 +70,7 @@ router.post('/login', async (req, res) => {
 
         if (rows.length === 0) {
             req.session.error = 'Пользователь не найден!';
-            return res.redirect('/login');
+            return res.redirect('/auth/login');
         }
 
         const user = rows[0];
@@ -78,7 +78,7 @@ router.post('/login', async (req, res) => {
         const isMatch = await bcrypt.compare(password.trim(), user.password);
         if (!isMatch) {
             req.session.error = 'Неверный пароль!';
-            return res.redirect('/login');
+            return res.redirect('/auth/login');
         }
 
         req.session.userId = user.customer_id;
@@ -88,7 +88,7 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         console.error(error);
         req.session.error = 'Ошибка сервера.';
-        res.redirect('/login');
+        res.redirect('/auth/login');
     }
 });
 
