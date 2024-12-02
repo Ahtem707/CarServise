@@ -19,18 +19,27 @@
   <div class="container">
     <div class="registration__auto">
       <h2>Регистрация автомобиля</h2>
+      <div>
+        <% if (error) { %>
+            <div style="color: red;"><%= error %></div>
+        <% } %>
+    
+        <% if (success) { %>
+            <div style="color: green;"><%= success %></div>
+        <% } %>
+    </div>
       <form action="/car" method="POST">
-      <p>Марка</p>
-      <input type="text" id="brand" placeholder="" required>
-      <p>Модель</p>
-      <input type="text" id="model" placeholder="" required>
-      <p>Год выпуска</p>
-      <input type="number" id="year" placeholder="" required>
-      <p>Гос номер</p>
-      <input type="text" id="registrationNumber" placeholder="" required>
-      <p>VIN номер</p>
-      <input type="text" id="vin" placeholder="" required>
-      <button type="submit">Зарегистрировать</button>
+        <p>Марка</p>
+        <input type="text" id="brand" name="brand" required>
+        <p>Модель</p>
+        <input type="text" id="model" name="model" required>
+        <p>Год выпуска</p>
+        <input type="number" id="year" name="year" required>
+        <p>Гос номер</p>
+        <input type="text" id="registrationNumber" name="registrationNumber" required>
+        <p>VIN номер</p>
+        <input type="text" id="vin" name="vin" required>
+        <button type="submit">Зарегистрировать</button>
     </form>
     </div>
     

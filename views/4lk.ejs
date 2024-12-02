@@ -10,33 +10,45 @@
     <title>Car Service</title>
 </head>
 <body>
-    <form action="/auth/" method="POST">
-    <div class="profile__conteiner">
-        <a href="/home"><img src="/img/svg/Logo.svg" alt="logo" class="Logo"></a>
+    <div class="container__left">
+        <div class="back">
+            <img src="/img/svg/acc_back.svg" alt="back" class="back">
+        </div>
+        <img src="/img/svg/acc_logo.svg" alt="profile" class="acc_logo">
         <div class="profile">
-            <h2><%= user.FIO %></h2>
-            <input type="text" placeholder="почта" id="email" value="<%= user.email %>" readonly>
-            <input type="text" placeholder="номер" id="phone" value="<%= user.phone %>" readonly>
-            <p>дата регистрации</p>
-            <input type="text" placeholder="" id="registrationDate" value="<%= user.registrationDate %>" readonly>
+            <h2>Иванов Иван Иванович</h2>
+            <div class="profile_box">
+                <input type="text" placeholder="почта" id="email">
+                <input type="text" placeholder="номер" id="phone">
+                <h3>дата регистрации</h3>
+                <div class="registrationDate">
+                    <input type="text" placeholder="" id="registrationDate">
+                </div>
+                
+            </div>
+            
         </div>
     </div>
-    <div class="container">
+    <div class="container__right">
         <div class="header">
-            <button class="exit"><h2><a href="/auth/logout">Выйти</a></h2></button>
+            <button class="exit"><h2>Выйти</h2></button>
         </div>
         <div class="cars">
             <div id="carList">
-                <% if (cars && cars.length > 0) { %>
-                    <% cars.forEach(car => { %>
-                        <div><%= car.name %></div>
-                    <% }); %>
-                <% } else { %>
-                    <div>Нет зарегистрированных автомобилей</div>
-                <% } %>
+                <div>название машины</div>
+                <div>название машины</div>
+                <div>название машины</div>
             </div>
-            <button><a href="/add-car">+ добавить авто</a></button>
+            <button onclick="addCar()">+ добавить авто</button>
         </div>
     </div>
+<script>
+    function addCar() {
+        const carList = document.getElementById('carList');
+        const newCar = document.createElement('div');
+        newCar.textContent = 'название машины';
+        carList.appendChild(newCar);
+    }
+</script>
 </body>
 </html>

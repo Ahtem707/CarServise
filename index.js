@@ -65,13 +65,8 @@ app.get('/home2', (req, res) => {
     res.render('7index2'); // Отображаем 1index.ejs
 });
 
-app.get('/car',(req, res) => {
-    res.render('6regauto');
-});
-
-app.get('/zakaz',(req,res) => {
-    res.render('9pd');
-});
+const carRoutes = require('./routes/car');
+app.use('/car', carRoutes);
 
 app.get('/account',(req,res) => {
     res.render('4lk');
