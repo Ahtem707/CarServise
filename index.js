@@ -61,33 +61,12 @@ app.use('/zakaz',zakazRouter)
 app.get('/home', (req, res) => {
     res.render('1index'); // Отображаем 1index.ejs
 });
-
-app.get('/login', (req, res) => {
-    res.render('3enter', {
-        user: {
-            fullName: 'Иванов Иван Иванович',
-            email: 'ivanov@example.com',
-            phone: '+7 (900) 123-45-67',
-            registrationDate: '2023-01-01'
-        },
-        cars: [
-            { name: 'Toyota Camry' },
-            { name: 'Hyundai Solaris' },
-            { name: 'BMW X5' }
-        ]
-    });
-});
-app.get('/auth/reset-password', (req, res) => {
-    res.render('5vospar');
+app.get('/home2', (req, res) => {
+    res.render('7index2'); // Отображаем 1index.ejs
 });
 
-app.get('/car',(req, res) => {
-    res.render('6regauto');
-});
-
-app.get('/zakaz',(req,res) => {
-    res.render('9pd');
-});
+const carRoutes = require('./routes/car');
+app.use('/car', carRoutes);
 
 app.get('/account',(req,res) => {
     res.render('4lk');

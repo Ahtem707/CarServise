@@ -6,42 +6,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/9style.css"> 
+    <link rel="stylesheet" href="/css/9style.css"> 
     <title>Car Service</title>
 </head>
 <body>
     <div class="container">
-        <form id="order-form">
-            <h2>Оформление заказа</h2>
-            <label for="fio">ФИО:</label>
-            <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" required>
-
-            <label for="car">Автомобиль:</label>
-            <select id="car" name="car" required>
-                <option value="Мерседес X">Мерседес X</option>
-                <option value="Ауди">Ауди</option>
-                <option value="БМВ">БМВ</option>
-            </select>
-
-            <label for="address">Адрес:</label>
-            <input type="text" id="address" name="address" placeholder="Введите адрес" required>
-
-            <label for="services">Услуги:</label>
-            <div class="service-options">
-                <button type="button" class="service-btn" data-service="Клининг" data-price="2100">Клининг</button>
-                <button type="button" class="service-btn" data-service="Заправка бензина 95" data-price="1000">Заправка бензина 95</button>
-            </div>
-
-            <label for="additional">Дополнительные требования:</label>
-            <textarea id="additional" name="additional"></textarea>
-
-            <button type="submit">Далее</button>
-        </form>
+      <form id="order-form" method="POST" action="/zakaz">
+        <h2>Оформление заказа</h2>
+        <label for="fio">ФИО:</label>
+        <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" readonly value="<%= fio %>" />
+    
+        <label for="car">Автомобиль:</label>
+        <select id="car" name="carId" required>
+            <% cars.forEach(car => { %>
+                <option value="<%= car.car_id %>"><%= car.mark %> <%= car.model %></option>
+            <% }); %>
+        </select>
+    
+        <label for="address">Адрес:</label>
+        <input type="text" id="address" name="address" placeholder="Введите адрес" required />
+    
+        <label for="services">Услуги:</label>
+        <div class="service-options">
+            <label><input type="checkbox" name="services" value="1" /> Заправка бензином 95</label>
+            <label><input type="checkbox" name="services" value="2" /> Заправка бензином 92</label>
+            <label><input type="checkbox" name="services" value="3" /> Заправка бензином 100</label>
+            <label><input type="checkbox" name="services" value="4" /> Заправка бензином ДТ</label>
+            <label><input type="checkbox" name="services" value="5" /> Прикуривание</label>
+            <label><input type="checkbox" name="services" value="6" />Зарядка аккумулятора</label>
+            <label><input type="checkbox" name="services" value="7" /> Отогрев авто</label>
+            <label><input type="checkbox" name="services" value="8" /> Ремонт замка зажигания</label>
+            <label><input type="checkbox" name="services" value="9" /> Клининг</label>
+            <label><input type="checkbox" name="services" value="10" /> Замена колеса</label>
+            <label><input type="checkbox" name="services" value="11" /> Доставка топлива в дороге</label>
+        </div>
+    
+        <label for="additional">Дополнительные требования:</label>
+        <textarea id="additional" name="additionalRequirements"></textarea>
+    
+        <button type="submit">Оформить заказ</button>
+    </form>
     </div>
     <footer class="footer">
       <div class="footer__container">
           <div class="footer__wrapper">
-              <img src="img/svg/Logo.svg" alt="footerlogo" class="footerlogo" />
+              <img src="/img/svg/Logo.svg" alt="footerlogo" class="footerlogo" />
               <div class="ooo">
                 <p>ООО "КИПУ"</p>
                 <p>ИНН 9709075179</p>
@@ -57,15 +66,15 @@
                 <a href="https://www.google.com">О нас</a>
               </div>
               <div class="sotsseti">
-                <a href="https://vk.com"><img src="img/svg/Vk.svg" alt="Vk" /></a>
+                <a href="https://vk.com"><img src="/img/svg/Vk.svg" alt="Vk" /></a>
                 <a href="https://web.telegram.org"
-                  ><img src="img/svg/Tg.svg" alt="Telegram"
+                  ><img src="/img/svg/Tg.svg" alt="Telegram"
                 /></a>
                 <a href="https://web.whatsapp.com/"
-                  ><img src="img/svg/WhatsAap.svg" alt="WhatsAap"
+                  ><img src="/img/svg/WhatsAap.svg" alt="WhatsAap"
                 /></a>
                 <a href="https://www.youtube.com/"
-                  ><img src="img/svg/Ytube.svg" alt="YouTube"
+                  ><img src="/img/svg/Ytube.svg" alt="YouTube"
                 /></a>
             </div>
         </div>
