@@ -1,85 +1,215 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/9style.css"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Krona+One&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/9style.css" />
     <title>Car Service</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
       <form id="order-form" method="POST" action="/zakaz">
         <h2>Оформление заказа</h2>
         <label for="fio">ФИО:</label>
-        <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" readonly value="<%= fio %>" />
-    
+        <input
+          type="text"
+          id="fio"
+          name="fio"
+          placeholder="Иванов Иван Иванович"
+          readonly
+          value="<%= fio %>"
+        />
+
         <label for="car">Автомобиль:</label>
         <select id="car" name="carId" required>
-            <% cars.forEach(car => { %>
-                <option value="<%= car.car_id %>"><%= car.mark %> <%= car.model %></option>
-            <% }); %>
+          <% cars.forEach(car => { %>
+          <option value="<%= car.car_id %>">
+            <%= car.mark %> <%= car.model %>
+          </option>
+          <% }); %>
         </select>
-    
+
         <label for="address">Адрес:</label>
-        <input type="text" id="address" name="address" placeholder="Введите адрес" required />
-    
+        <input
+          type="text"
+          id="address"
+          name="address"
+          placeholder="Введите адрес"
+          required
+        />
+
         <label for="services">Услуги:</label>
         <div class="service-options">
-            <label><input type="checkbox" name="services" value="1" /> Заправка бензином 95</label>
-            <label><input type="checkbox" name="services" value="2" /> Заправка бензином 92</label>
-            <label><input type="checkbox" name="services" value="3" /> Заправка бензином 100</label>
-            <label><input type="checkbox" name="services" value="4" /> Заправка бензином ДТ</label>
-            <label><input type="checkbox" name="services" value="5" /> Прикуривание</label>
-            <label><input type="checkbox" name="services" value="6" />Зарядка аккумулятора</label>
-            <label><input type="checkbox" name="services" value="7" /> Отогрев авто</label>
-            <label><input type="checkbox" name="services" value="8" /> Ремонт замка зажигания</label>
-            <label><input type="checkbox" name="services" value="9" /> Клининг</label>
-            <label><input type="checkbox" name="services" value="10" /> Замена колеса</label>
-            <label><input type="checkbox" name="services" value="11" /> Доставка топлива в дороге</label>
+          <% services.forEach(service => { %>
+          <label class="service-label">
+            <input
+              type="checkbox"
+              name="services[]"
+              value="<%= service.servis_id %>"
+              class="service-checkbox"
+              data-price="<%= service.servis_price %>"
+            />
+            <div class="service-content">
+              <div class="service-header">
+                <span class="service-name"><%= service.servis_name %></span>
+                <span class="service-price"><%= service.servis_price %> ₽</span>
+              </div>
+              <% if (service.servis_name.toLowerCase().includes('заправка') ||
+              service.servis_name.toLowerCase().includes('колеса')) { %>
+              <div class="quantity-wrapper" style="display: none">
+                <div class="quantity-controls">
+                  <button type="button" class="quantity-btn minus">-</button>
+                  <input
+                    type="number"
+                    name="quantity_<%= service.servis_id %>"
+                    class="quantity-input"
+                    value="1"
+                    min="1"
+                    max="100"
+                  />
+                  <button type="button" class="quantity-btn plus">+</button>
+                </div>
+                <span class="quantity-unit">
+                  <%= service.servis_name.toLowerCase().includes('заправка') ?
+                  'литров' : 'штук' %>
+                </span>
+              </div>
+              <% } %>
+            </div>
+          </label>
+          <% }); %>
         </div>
-    
+
+        <div class="total-container">
+          <div class="total-price-container">
+            <span>Итого:</span>
+            <span id="total-price">0 ₽</span>
+          </div>
+        </div>
+        <input type="hidden" name="total_amount" id="total_amount" />
+
         <label for="additional">Дополнительные требования:</label>
         <textarea id="additional" name="additionalRequirements"></textarea>
-    
+
         <button type="submit">Оформить заказ</button>
-    </form>
+      </form>
     </div>
     <footer class="footer">
       <div class="footer__container">
-          <div class="footer__wrapper">
-              <img src="/img/svg/Logo.svg" alt="footerlogo" class="footerlogo" />
-              <div class="ooo">
-                <p>ООО "КИПУ"</p>
-                <p>ИНН 9709075179</p>
-                <p>ОГРН 1217700488763</p>
-                <p>+7 (978) 978 79 78</p>
-                <p>sewspot@bk.ru</p>
-              </div>
-              <div class="onas">
-                <div class="z"></div>
-                <a href="https://www.google.com">Заказчикам</a>
-                <a href="https://www.google.com">Исполнителям</a>
-                <a href="https://www.google.com">Тарифы</a>
-                <a href="https://www.google.com">О нас</a>
-              </div>
-              <div class="sotsseti">
-                <a href="https://vk.com"><img src="/img/svg/Vk.svg" alt="Vk" /></a>
-                <a href="https://web.telegram.org"
-                  ><img src="/img/svg/Tg.svg" alt="Telegram"
-                /></a>
-                <a href="https://web.whatsapp.com/"
-                  ><img src="/img/svg/WhatsAap.svg" alt="WhatsAap"
-                /></a>
-                <a href="https://www.youtube.com/"
-                  ><img src="/img/svg/Ytube.svg" alt="YouTube"
-                /></a>
-            </div>
+        <div class="footer__wrapper">
+          <img src="/img/svg/Logo.svg" alt="footerlogo" class="footerlogo" />
+          <div class="ooo">
+            <p>ООО "КИПУ"</p>
+            <p>ИНН 9709075179</p>
+            <p>ОГРН 1217700488763</p>
+            <p>+7 (978) 978 79 78</p>
+            <p>sewspot@bk.ru</p>
+          </div>
+          <div class="onas">
+            <div class="z"></div>
+            <a href="https://www.google.com">Заказчикам</a>
+            <a href="https://www.google.com">Исполнителям</a>
+            <a href="https://www.google.com">Тарифы</a>
+            <a href="https://www.google.com">О нас</a>
+          </div>
+          <div class="sotsseti">
+            <a href="https://vk.com"><img src="/img/svg/Vk.svg" alt="Vk" /></a>
+            <a href="https://web.telegram.org"
+              ><img src="/img/svg/Tg.svg" alt="Telegram"
+            /></a>
+            <a href="https://web.whatsapp.com/"
+              ><img src="/img/svg/WhatsAap.svg" alt="WhatsAap"
+            /></a>
+            <a href="https://www.youtube.com/"
+              ><img src="/img/svg/Ytube.svg" alt="YouTube"
+            /></a>
+          </div>
         </div>
       </div>
-  </footer>
-    <script src="a9.js"></script>
-</body>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll(".service-checkbox");
+        const totalPriceElement = document.getElementById("total-price");
+        const totalAmountElement = document.getElementById("total_amount"); // Получаем скрытое поле
+
+        // Функция обновления цены
+        function updateTotalPrice() {
+          let totalPrice = 0;
+          checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+              const price = parseFloat(checkbox.getAttribute("data-price"));
+              const quantityInput = checkbox
+                .closest("label")
+                .querySelector(".quantity-input");
+              const quantity = quantityInput
+                ? parseInt(quantityInput.value)
+                : 1;
+              totalPrice += price * quantity;
+            }
+          });
+
+          console.log("Обновленная сумма:", totalPrice); // Логируем сумму
+
+          // Обновляем видимую цену на странице
+          totalPriceElement.textContent = `${totalPrice} ₽`;
+
+          // Обновляем значение скрытого поля
+          totalAmountElement.value = totalPrice; // Устанавливаем сумму в скрытое поле
+        }
+
+        // Добавление/удаление класса "checked" для label
+        checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener("change", function () {
+            const label = this.closest("label"); // Находим родительский label
+            if (this.checked) {
+              label.classList.add("checked");
+              // Показать поле количества, если услуга требует этого
+              const quantityWrapper = label.querySelector(".quantity-wrapper");
+              if (quantityWrapper) quantityWrapper.style.display = "block";
+            } else {
+              label.classList.remove("checked");
+              const quantityWrapper = label.querySelector(".quantity-wrapper");
+              if (quantityWrapper) quantityWrapper.style.display = "none";
+            }
+            updateTotalPrice();
+          });
+        });
+
+        // Обработчики для кнопок + и -
+        document.querySelectorAll(".quantity-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const input =
+              this.closest(".quantity-controls").querySelector(
+                ".quantity-input"
+              );
+            let value = parseInt(input.value);
+            if (this.classList.contains("minus") && value > 1) {
+              value--;
+            } else if (this.classList.contains("plus") && value < 100) {
+              value++;
+            }
+            input.value = value;
+            updateTotalPrice();
+          });
+        });
+
+        // Логируем состояние выбранных услуг в консоль
+        checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener("change", function () {
+            console.log(`Service ID: ${this.value}, Selected: ${this.checked}`);
+          });
+        });
+
+        // Начальный подсчет суммы при загрузке страницы
+        updateTotalPrice();
+      });
+    </script>
+  </body>
 </html>
