@@ -104,7 +104,7 @@ router.post("/", async (req, res) => {
     const [orderResult] = await db.promise().query(
       `INSERT INTO servis_orders 
            (servis_data, order_status, adress, customers_customer_id, car_car_id, employes_employes_id, total_amount) 
-           VALUES (NOW(), 'Создан', ?, ?, ?, ?, ?)`,
+           VALUES (NOW(), 'active', ?, ?, ?, ?, ?)`,
       [address || "", customerId, carId, activeEmployeeId, totalAmount]
     );
 
@@ -217,7 +217,7 @@ router.post("/", async (req, res) => {
     const [orderResult] = await db.promise().query(
       `INSERT INTO servis_orders 
            (servis_data, order_status, adress, customers_customer_id, car_car_id, employes_employes_id, total_amount) 
-           VALUES (NOW(), 'Создан', ?, ?, ?, ?, ?)`,
+           VALUES (NOW(), 'active', ?, ?, ?, ?, ?)`,
       [address || "", customerId, carId, activeEmployeeId, totalAmount]
     );
 
