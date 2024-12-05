@@ -1,0 +1,279 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2b2b44;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-main {
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #44436f;
+}
+
+h1 {
+  margin: 0;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.orders-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-item {
+  background-color: #3a3a5a;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-button {
+  background-color: #3498db;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.inventory-table th,
+.inventory-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.inventory-table th {
+  background-color: #44436f;
+}
+
+.add-button {
+  background-color: #2ecc71;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #27ae60;
+}
+
+.popup {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.popup-content {
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2b44;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1200px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ширина всплывающего окна */
+}
+
+.popup-content__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup__add-object {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.popup__add-object input {
+  border-radius: 20rem;
+  width: 100%;
+  padding: 10px 5px;
+}
+.popup__add-object input:last-of-type {
+  margin-bottom: 30px;
+}
+
+.popup__add-object button {
+  padding: 20px;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-role {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.auth-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #3a3a5a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+  border: 1px solid #44436f;
+  border-radius: 5px;
+  background-color: #2b2b44;
+  color: #fff;
+}
+
+.auth-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.auth-button:hover {
+  background-color: #2980b9;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #3a3a5a;
+  border-radius: 5px;
+}
+
+.details-table th,
+.details-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #44436f;
+}
+
+.details-table th {
+  width: 200px;
+  background-color: #44436f;
+}
+
+.back-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+}
+
+.order-info,
+.client-info,
+.car-info,
+.used-parts {
+  background-color: #2b2b44;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -27,8 +27,8 @@ app.use((req, res, next) => {
 const customerRoutes = require("./routes/customers");
 app.use("/customers", customerRoutes);
 
-const servisOrdersRoutes = require("./routes/servisorders");
-app.use("/orders", servisOrdersRoutes);
+// const servisOrdersRoutes = require("./routes/servisorders");
+// app.use("/orders", servisOrdersRoutes);
 
 const servisPartsRoutes = require("./routes/servisparts");
 app.use("/parts", servisPartsRoutes);
@@ -60,7 +60,13 @@ app.use("/auth", authRoutes);
 const zakazRouter = require("./routes/zakaz");
 app.use("/zakaz", zakazRouter);
 
-app.get("/home", (req, res) => {
+const adminRoutes = require("./routes/admin");
+app.use("/admin", adminRoutes);
+
+const orderDetailsRouter = require("./routes/orders");
+app.use("/order-details", orderDetailsRouter);
+
+app.get("/", (req, res) => {
   res.render("1index"); // Отображаем 1index.ejs
 });
 app.get("/home2", (req, res) => {
@@ -70,9 +76,8 @@ app.get("/home2", (req, res) => {
 const carRoutes = require("./routes/car");
 app.use("/car", carRoutes);
 
-
-const accountRouter = require('./routes/account');
-app.use('/account', accountRouter);
+const accountRouter = require("./routes/account");
+app.use("/account", accountRouter);
 
 const path = require("path");
 app.set("views", path.join(__dirname, "views"));

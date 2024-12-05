@@ -15,4 +15,12 @@ db.connect((err) => {
   console.log("Подключено к базе данных");
 });
 
+db.query("ALTER TABLE employes MODIFY COLUMN password VARCHAR(255)", (err) => {
+  if (err) {
+    console.error("Ошибка при изменении размера поля password:", err);
+  } else {
+    console.log("Размер поля password успешно изменен");
+  }
+});
+
 module.exports = db;

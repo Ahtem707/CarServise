@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <title>Администратор</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Личный кабинет администратора</h1>
+        <div class="user-controls">
+          <span class="user-role">Роль: <%= userRole %></span>
+          <button id="exit">
+            <a href="/home"><h1>выход</h1></a>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="admin-main">
+      <section class="orders-section">
+        <h2>Активные заказы</h2>
+        <ul class="orders-list">
+          <% activeOrders.forEach(order => { %>
+          <li class="order-item">
+            Заказ ID: <%= order.order_id %> - Статус: <%= order.order_status %>
+            <a href="/order-details/<%= order.order_id %>" class="view-button">
+              Просмотреть
+            </a>
+          </li>
+          <% }); %>
+        </ul>
+      </section>
+      <section class="inventory-section">
+        <h2>Инвентарь</h2>
+        <table class="inventory-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Название</th>
+              <th>Количество</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% inventory.forEach(item => { %>
+            <tr>
+              <td><%= item.inventory_id %></td>
+              <td><%= item.inventory_name %></td>
+              <td><%= item.quantity_in_stock %></td>
+              <td><%= item.inventory_price %> ₽</td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </section>
+      <button id="add-item-button" class="add-button">Добавить предмет</button>
+    </main>
+
+    <div id="add-item-popup" class="popup">
+      <div class="popup-content">
+        <div class="popup-content__header">
+          <span class="close">&times;</span>
+          <h2>Добавить предмет в инвентарь</h2>
+        </div>
+
+        <form
+          class="popup__add-object"
+          id="add-item-form"
+          action="/inventory"
+          method="POST"
+        >
+          <label for="inventory_name">Название:</label>
+          <input
+            type="text"
+            id="inventory_name"
+            name="inventory_name"
+            required
+          />
+
+          <label for="quantity_in_stock">Количество:</label>
+          <input
+            type="number"
+            id="quantity_in_stock"
+            name="quantity_in_stock"
+            required
+          />
+
+          <label for="inventory_price">Цена:</label>
+          <input
+            type="number"
+            id="inventory_price"
+            name="inventory_price"
+            required
+          />
+
+          <input
+            type="hidden"
+            name="employes_employes_id"
+            value="<%= userId %>"
+          />
+
+          <button type="submit">Добавить</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      // Получаем элементы
+      const popup = document.getElementById("add-item-popup");
+      const btn = document.getElementById("add-item-button");
+      const span = document.getElementsByClassName("close")[0];
+
+      // Открываем всплывающее окно при нажатии на кнопку
+      btn.onclick = function () {
+        popup.style.display = "block";
+      };
+
+      // Закрываем всплывающее окно при нажатии на "x"
+      span.onclick = function () {
+        popup.style.display = "none";
+      };
+
+      // Закрываем всплывающее окно при клике вне его
+      window.onclick = function (event) {
+        if (event.target == popup) {
+          popup.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
