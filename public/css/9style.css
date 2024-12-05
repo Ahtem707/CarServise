@@ -240,3 +240,12 @@ button:hover {
 #total-price {
   color: #4caf50;
 }
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}

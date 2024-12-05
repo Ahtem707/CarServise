@@ -60,7 +60,7 @@ app.use("/auth", authRoutes);
 const zakazRouter = require("./routes/zakaz");
 app.use("/zakaz", zakazRouter);
 
-app.get("/", (req, res) => {
+app.get("/home", (req, res) => {
   res.render("1index"); // Отображаем 1index.ejs
 });
 app.get("/home2", (req, res) => {
@@ -70,9 +70,9 @@ app.get("/home2", (req, res) => {
 const carRoutes = require("./routes/car");
 app.use("/car", carRoutes);
 
-app.get("/account", (req, res) => {
-  res.render("4lk");
-});
+
+const accountRouter = require('./routes/account');
+app.use('/account', accountRouter);
 
 const path = require("path");
 app.set("views", path.join(__dirname, "views"));
