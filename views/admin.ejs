@@ -13,7 +13,7 @@
         <div class="user-controls">
           <span class="user-role">Роль: <%= userRole %></span>
           <button id="exit">
-            <a href="/home"><h1>выход</h1></a>
+            <a href="/"><h1>выход</h1></a>
           </button>
         </div>
       </div>
@@ -28,6 +28,12 @@
             <a href="/order-details/<%= order.order_id %>" class="view-button">
               Просмотреть
             </a>
+            <button
+              class="close-order-button"
+              data-order-id="<%= order.order_id %>"
+            >
+              Закрыть
+            </button>
           </li>
           <% }); %>
         </ul>
@@ -41,6 +47,7 @@
               <th>Название</th>
               <th>Количество</th>
               <th>Цена</th>
+              <th>Действие</th>
             </tr>
           </thead>
           <tbody>
@@ -50,11 +57,20 @@
               <td><%= item.inventory_name %></td>
               <td><%= item.quantity_in_stock %></td>
               <td><%= item.inventory_price %> ₽</td>
+              <td>
+                <button
+                  class="delete-item-button"
+                  data-inventory-id="<%= item.inventory_id %>"
+                >
+                  Удалить
+                </button>
+              </td>
             </tr>
             <% }); %>
           </tbody>
         </table>
       </section>
+      
       <button id="add-item-button" class="add-button">Добавить предмет</button>
     </main>
 
@@ -106,6 +122,52 @@
       </div>
     </div>
     <script>
+      
+      const deleteItemButtons = document.querySelectorAll(".delete-item-button");
+
+      fetch('/admin', { method: 'GET' })
+    .then(response => {
+      if (response.status === 403) {
+        alert("У вас нет доступа к этой странице.");
+        window.location.href = "/admin/login"; // Перенаправляем на страницу входа
+      }
+    })
+    .catch(error => {
+      console.error("Ошибка:", error); });
+deleteItemButtons.forEach(button => {
+  button.addEventListener("click", async event => {
+    const inventoryId = button.getAttribute("data-inventory-id");
+    const confirmDelete = confirm(
+      `Вы уверены, что хотите удалить предмет с ID: ${inventoryId}?`
+    );
+
+    if (confirmDelete) {
+      try {
+        const response = await fetch(`/admin/delete-item/${inventoryId}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          alert("Предмет успешно удалён.");
+          window.location.reload(); // Обновляем страницу
+        } else {
+          alert("Не удалось удалить предмет.");
+        }
+      } catch (error) {
+        console.error("Ошибка при удалении предмета:", error);
+      }
+    }
+  });
+});
+fetch('/admin', { method: 'GET' })
+    .then(response => {
+      if (response.status === 403) {
+        alert("У вас нет доступа к этой странице.");
+        window.location.href = "/admin/login"; // Перенаправляем на страницу входа
+      }
+    })
+    .catch(error => {
+      console.error("Ошибка:", error); });
       // Получаем элементы
       const popup = document.getElementById("add-item-popup");
       const btn = document.getElementById("add-item-button");
@@ -127,6 +189,37 @@
           popup.style.display = "none";
         }
       };
+
+      // Добавление логики кнопки "Закрыть"
+      const closeOrderButtons = document.querySelectorAll(
+        ".close-order-button"
+      );
+
+      closeOrderButtons.forEach(button => {
+        button.addEventListener("click", async event => {
+          const orderId = button.getAttribute("data-order-id");
+          const confirmClose = confirm(
+            `Вы уверены, что хотите закрыть заказ ID: ${orderId}?`
+          );
+
+          if (confirmClose) {
+            try {
+              const response = await fetch(`/admin/close-order/${orderId}`, {
+                method: "PUT",
+              });
+
+              if (response.ok) {
+                alert("Заказ успешно закрыт.");
+                window.location.reload(); // Обновляем страницу
+              } else {
+                alert("Не удалось закрыть заказ.");
+              }
+            } catch (error) {
+              console.error("Ошибка при закрытии заказа:", error);
+            }
+          }
+        });
+      });
     </script>
   </body>
 </html>

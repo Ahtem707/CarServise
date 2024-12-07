@@ -3,6 +3,40 @@ const router = express.Router();
 const db = require("../db/connection");
 const bcrypt = require("bcrypt");
 
+// Функция для проверки роли админа
+function checkAdminRole(req, res, next) {
+  if (!req.session.userId) {
+    return res.redirect("/admin/login"); // Если пользователь не авторизован, перенаправляем на страницу входа
+  }
+
+  if (req.session.userRole !== "admin") {
+    return res.status(403).send("Доступ запрещен. Только для администраторов."); // Если роль не "admin", запрещаем доступ
+  }
+
+  next(); // Если все проверки пройдены, переходим к следующему обработчику
+}
+
+// Главная страница админ-панели
+router.get("/", checkAdminRole, async (req, res) => {
+  try {
+    // Получаем активные заказы
+    const [activeOrders] = await db.promise().query("SELECT * FROM servis_orders WHERE order_status = 'active'");
+
+    // Получаем инвентарь
+    const [inventory] = await db.promise().query("SELECT * FROM inventory");
+
+    res.render("admin", {
+      activeOrders,
+      inventory,
+      userRole: req.session.userRole,
+      userId: req.session.userId,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Ошибка сервера");
+  }
+});
+
 // Маршрут для страницы входа
 router.get("/login", (req, res) => {
   res.render("admin-login");
@@ -28,9 +62,15 @@ router.post("/login", async (req, res) => {
       return res.status(401).send("Неверный email или пароль");
     }
 
+    // Сохраняем данные о пользователе в сессии
     req.session.userId = user.employes_id;
     req.session.userRole = user.role;
-    res.redirect("/admin");
+
+    if (user.role === "admin") {
+      res.redirect("/admin");
+    } else {
+      res.redirect("/");  // Для пользователей с другой ролью перенаправляем на домашнюю страницу
+    }
   } catch (error) {
     console.error(error);
     res.status(500).send("Ошибка сервера");
@@ -68,59 +108,6 @@ router.post("/register", async (req, res) => {
       );
 
     res.redirect("/admin/login");
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Ошибка сервера");
-  }
-});
-
-// Главная страница админ-панели
-router.get("/", async (req, res) => {
-  try {
-    if (!req.session.userId) {
-      return res.redirect("/admin/login");
-    }
-
-    // Получаем активные заказы
-    const [activeOrders] = await db
-      .promise()
-      .query("SELECT * FROM servis_orders WHERE order_status = 'active'");
-
-    // Получаем инвентарь
-    const [inventory] = await db.promise().query("SELECT * FROM inventory");
-
-    // Получаем роль пользователя
-    const [userRoleResult] = await db
-      .promise()
-      .query("SELECT role FROM employes WHERE employes_id = ?", [
-        req.session.userId,
-      ]);
-
-    const userRole = userRoleResult[0]?.role || "Не указана";
-
-    res.render("admin", {
-      activeOrders,
-      inventory,
-      userRole,
-      userId: req.session.userId,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Ошибка сервера");
-  }
-});
-
-// Добавление на склад
-router.post("/add", async (req, res) => {
-  try {
-    const { inventory_id } = req.body;
-    await db
-      .promise()
-      .query(
-        "UPDATE inventory SET quantity_in_stock = quantity_in_stock + 1 WHERE inventory_id = ?",
-        [inventory_id]
-      );
-    res.redirect("/admin");
   } catch (error) {
     console.error(error);
     res.status(500).send("Ошибка сервера");
