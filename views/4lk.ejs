@@ -5,106 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/4style.css" />
     <title>Личный кабинет</title>
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        height: 100vh;
-        background-color: #f4f4f4;
-      }
-
-      .container__left {
-        width: 30%;
-        background-color: #2c3e50;
-        color: white;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .acc_logo {
-        margin: 20px 0;
-        width: 150px;
-      }
-
-      .profile h2 {
-        margin: 10px 0;
-      }
-
-      .profile_box input {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 16px;
-        padding: 10px;
-        margin: 5px 0;
-        width: 100%;
-        text-align: center;
-      }
-
-      .profile_box input:read-only {
-        border-bottom: 1px solid white;
-      }
-
-      .container__right {
-        width: 70%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .header {
-        text-align: right;
-      }
-
-      .exit {
-        background-color: #e74c3c;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
-      .cars {
-        margin-top: 20px;
-      }
-
-      .cars #carList {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-
-      .cars #carList div {
-        background-color: #ecf0f1;
-        padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .cars button {
-        background-color: #3498db;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
-      .cars button:hover {
-        background-color: #2980b9;
-      }
-    </style>
   </head>
   <body>
     <div class="container__left">
-      <img src="/img/svg/acc_logo.svg" alt="profile" class="acc_logo" />
+      <a href="/"><img src="../img/svg/acc_back.svg" alt="back" class="acc_back"></a>
+      <img src="../img/svg/acc_logo.svg" alt="profile" class="acc_logo" />
       <div class="profile">
         <h2><%= fio %></h2>
         <div class="profile_box">
@@ -120,13 +25,12 @@
     </div>
 
     <div class="container__right">
-=======
       <div class="header">
-        <button id="exit">
-          <a href="/"><h1>выход</h1></a>
+        <button class="exit">
+          <a href="/"><h1>Выйти</h1></a>
         </button>
       </div>
->>>>>>> a23d9b3 (Kostyan <3)
+
 
       <div class="cars">
         <h2>Ваши автомобили</h2>

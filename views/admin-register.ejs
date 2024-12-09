@@ -7,6 +7,23 @@
     <title>Регистрация сотрудника</title>
   </head>
   <body>
+    <script>
+      // Функция для проверки пароля
+      function checkPassword() {
+        const password = prompt("Введите пароль:");
+        if (password === "xbox1337") {
+          document.getElementById("auth-container").style.display = "block"; // Показываем содержимое
+        } else {
+          alert("Неверный пароль!");
+          window.location.href = "/"; // Перенаправление на главную страницу
+        }
+      }
+
+      // Проверка пароля при загрузке страницы
+      window.onload = function() {
+        checkPassword();
+      };
+    </script>
     <div class="auth-container">
       <h1>Регистрация сотрудника</h1>
       <form action="/admin/register" method="POST" class="auth-form">

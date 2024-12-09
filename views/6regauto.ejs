@@ -14,36 +14,39 @@
   
   <div class="header">
     <a href="1index.html"><img src="/img/svg/Logo.svg" alt="logo" class="Logo"></a>
-    <button class="lk"><a href="4lk.html"><h2>Личный кабинет</h2></a></button>
-  </div>
-  <div class="container">
-    <div class="registration__auto">
-      <h2>Регистрация автомобиля</h2>
-      <div>
-        <% if (error) { %>
-            <div style="color: red;"><%= error %></div>
-        <% } %>
-    
-        <% if (success) { %>
-            <div style="color: green;"><%= success %></div>
-        <% } %>
+    <button class="lk"><a href="/account"><h2>Личный кабинет</h2></a></button>
+  </div> 
+  <div class="big_container">
+    <div class="container">
+      <div class="registration__auto">
+        <h2 class="h2">Регистрация автомобиля</h2>
+        <div>
+          <% if (error) { %>
+              <div style="color: red;"><%= error %></div>
+          <% } %>
+      
+          <% if (success) { %>
+              <div style="color: green;"><%= success %></div>
+          <% } %>
+      </div>
+        <form action="/car" method="POST">
+          <p class="p">Марка</p>
+          <input type="text" id="brand" name="brand" required>
+          <p class="p">Модель</p>
+          <input type="text" id="model" name="model" required>
+          <p class="p">Год выпуска</p>
+          <input type="number" id="year" name="year" required>
+          <p class="p">Гос номер</p>
+          <input type="text" id="registrationNumber" name="registrationNumber" required>
+          <p class="p">VIN номер</p>
+          <input type="text" id="vin" name="vin" required>
+          <button type="submit" class="reg">Зарегистрировать</button>
+      </form>
+      </div>
+      
     </div>
-      <form action="/car" method="POST">
-        <p>Марка</p>
-        <input type="text" id="brand" name="brand" required>
-        <p>Модель</p>
-        <input type="text" id="model" name="model" required>
-        <p>Год выпуска</p>
-        <input type="number" id="year" name="year" required>
-        <p>Гос номер</p>
-        <input type="text" id="registrationNumber" name="registrationNumber" required>
-        <p>VIN номер</p>
-        <input type="text" id="vin" name="vin" required>
-        <button type="submit">Зарегистрировать</button>
-    </form>
-    </div>
-    
   </div>
+  
   <footer class="footer">
     <div class="footer__container">
         <div class="footer__wrapper">
